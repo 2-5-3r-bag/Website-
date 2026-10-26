@@ -15,7 +15,15 @@ function notesImage(product) {
 }
 
 function formatPrice(n) {
+  if (!Number.isFinite(Number(n)) || Number(n) <= 0) return "Үнэ лавлах";
   return new Intl.NumberFormat("mn-MN").format(n) + " ₮";
+}
+
+function purchaseAction(product, label) {
+  if (product.price > 0) {
+    return `<button class="btn primary" data-add="${product.id}">${label || "Сагсанд"}</button>`;
+  }
+  return '<a class="btn primary" href="salbar.html">Үнэ лавлах</a>';
 }
 
 function readJson(key, fallback) {
@@ -40,7 +48,11 @@ function users() {
 }
 
 function cart() {
-  return readJson(STORAGE.cart, []);
+  const items = readJson(STORAGE.cart, []);
+  if (!Array.isArray(items)) return [];
+  return items
+    .filter((item) => item && findProduct(item.id))
+    .map((item) => ({ id: item.id, qty: Math.max(1, Number(item.qty) || 1) }));
 }
 
 function wishlistMap() {
@@ -116,10 +128,10 @@ function renderCards(target, list) {
         </a>
         <div class="card-body">
           <h3><a href="product.html?id=${encodeURIComponent(p.id)}">${p.name}</a></h3>
-          <p class="meta">${p.brand} · ${p.size}</p>
+          <p class="meta">${p.brand}${p.size ? ` · ${p.size}` : ""}</p>
           <p class="price">${formatPrice(p.price)}</p>
           <div class="actions">
-            <button class="btn primary" data-add="${p.id}">Сагсанд</button>
+            ${purchaseAction(p)}
             <button class="btn" data-save="${p.id}">${saved ? "Хадгалсан" : "Хадгалах"}</button>
           </div>
         </div>
@@ -194,6 +206,15 @@ function renderFiltered() {
   const gender = el.getAttribute("data-gender");
   const family = pageQuery("family") || el.getAttribute("data-family");
   const brand = pageQuery("brand");
+  const isFamilyCatalog = window.location.pathname.endsWith("unertnii-torol.html");
+  if (isFamilyCatalog && !PRODUCTS.some((p) => FAMILIES.some((f) => f.id === p.family))) {
+    el.innerHTML = '<p class="empty">Word жагсаалтад үнэрийн бүлгийн мэдээлэл байхгүй тул энэ ангиллыг одоогоор сонгох боломжгүй.</p>';
+    return;
+  }
+  if (family && !PRODUCTS.some((p) => p.family === family)) {
+    el.innerHTML = '<p class="empty">Энэ үнэрийн бүлэгт ангилсан сүрчиг одоогоор алга.</p>';
+    return;
+  }
   let list = PRODUCTS.slice();
   if (gender === "emegtei") list = list.filter((p) => p.gender === "emegtei" || p.gender === "unisex");
   if (gender === "eregtei") list = list.filter((p) => p.gender === "eregtei" || p.gender === "unisex");
@@ -218,9 +239,14 @@ function renderFamilies() {
   const nav = document.querySelector("[data-families]");
   if (nav) {
     const current = pageQuery("family");
+    const available = FAMILIES.filter((f) => PRODUCTS.some((p) => p.family === f.id));
+    if (!available.length) {
+      nav.innerHTML = '<p class="auth-note">Үнэрийн бүлгийн мэдээлэл бүтээгдэхүүний жагсаалтад ороогүй байна.</p>';
+      return;
+    }
     nav.innerHTML =
       `<a class="${!current ? "active" : ""}" href="unertnii-torol.html">Бүгд</a>` +
-      FAMILIES.map(
+      available.map(
         (f) =>
           `<a class="${f.id === current ? "active" : ""}" href="unertnii-torol.html?family=${f.id}">${f.name}</a>`
       ).join("");
@@ -237,34 +263,35 @@ function renderProduct() {
     return;
   }
   const saved = wishlist().includes(product.id);
-  const notes = product.notes;
+  const notes = product.notes || { top: [], heart: [], base: [] };
+  const hasNotes = notes.top.length || notes.heart.length || notes.base.length;
+  const details = [product.brand, product.origin, product.size].filter(Boolean).join(" · ");
   root.innerHTML = `
     <div class="product-layout">
       <aside class="notes-panel">
-        <img src="${notesImage(product)}" alt="${product.name} орц">
-        <h3>Орц</h3>
-        <p class="meta">Дээд нот</p>
-        <ul>${notes.top.map((n) => `<li>${n}</li>`).join("")}</ul>
-        <p class="meta">Зүрх нот</p>
-        <ul>${notes.heart.map((n) => `<li>${n}</li>`).join("")}</ul>
-        <p class="meta">Суурь нот</p>
-        <ul>${notes.base.map((n) => `<li>${n}</li>`).join("")}</ul>
+        <h3>Үнэрийн ноот</h3>
+        ${hasNotes ? `
+          <p class="meta">Дээд нот</p><ul>${notes.top.map((n) => `<li>${n}</li>`).join("")}</ul>
+          <p class="meta">Зүрх нот</p><ul>${notes.heart.map((n) => `<li>${n}</li>`).join("")}</ul>
+          <p class="meta">Суурь нот</p><ul>${notes.base.map((n) => `<li>${n}</li>`).join("")}</ul>` :
+          '<p class="meta">Ноотын мэдээллийг одоогоор оруулаагүй.</p>'}
       </aside>
       <div class="product-main">
         <img src="${productImage(product)}" alt="${product.name}">
         <h1>${product.name}</h1>
-        <p class="meta">${product.brand} · ${product.origin} · ${product.size}</p>
+        <p class="meta">${details}</p>
         <p class="price">${formatPrice(product.price)}</p>
-        <p class="lead">${product.description}</p>
+        ${product.description ? `<p class="lead">${product.description}</p>` : ""}
         <div class="actions" style="justify-content:center;margin-top:18px">
-          <button class="btn primary" data-add="${product.id}">Сагсанд нэмэх</button>
+          ${purchaseAction(product, "Сагсанд нэмэх")}
           <button class="btn" data-save="${product.id}">${saved ? "Хадгалсан" : "Хадгалах"}</button>
         </div>
       </div>
       <aside class="notes-panel">
         <img src="${notesImage(product)}" alt="Орцын зураг">
-        <h3>Найрлага</h3>
-        <p class="meta">${FAMILIES.find((f) => f.id === product.family)?.name || ""} үнэртний төрөл. Италиас ирсэн 100% оригинал.</p>
+        <h3>Дэлгэрэнгүй</h3>
+        <p class="meta">Үнэ, савлагааны хэмжээ болон үнэрийн мэдээллийг лавлах бол салбарын мэдээллийг үзнэ үү.</p>
+        <a class="btn" href="salbar.html">Салбарын мэдээлэл</a>
       </aside>
     </div>`;
 }
@@ -347,7 +374,7 @@ function renderProfile() {
           <h3><a href="product.html?id=${p.id}">${p.name}</a></h3>
           <p class="price">${formatPrice(p.price)}</p>
           <div class="actions">
-            <button class="btn primary" data-add="${p.id}">Сагсанд</button>
+            ${purchaseAction(p)}
             <button class="btn ghost" data-unsave="${p.id}">Хасах</button>
           </div>
         </div>
@@ -394,17 +421,18 @@ function renderCart() {
     .map((item) => {
       const p = findProduct(item.id);
       if (!p) return "";
-      const line = p.price * item.qty;
-      total += line;
+      const line = p.price > 0 && Number.isFinite(Number(p.price)) ? Number(p.price) * item.qty : null;
+      if (line !== null) total += line;
       return `<tr>
         <td><a href="product.html?id=${p.id}">${p.name}</a></td>
         <td>${formatPrice(p.price)}</td>
         <td><input class="qty" type="number" min="1" value="${item.qty}" data-qty="${p.id}"></td>
-        <td>${formatPrice(line)}</td>
+        <td>${line === null ? "Үнэ лавлах" : formatPrice(line)}</td>
         <td><button class="btn ghost" data-remove="${p.id}">Устгах</button></td>
       </tr>`;
     })
     .join("");
+  const hasUnpriced = items.some((item) => !(findProduct(item.id)?.price > 0));
   root.innerHTML = `
     <div class="table-wrap">
       <table class="table">
@@ -412,8 +440,10 @@ function renderCart() {
         <tbody>${rows}</tbody>
       </table>
     </div>
-    <p class="price">Нийт: ${formatPrice(total)}</p>
-    <p><a class="btn primary" href="checkout.html">Захиалах</a></p>`;
+    <p class="price">${hasUnpriced ? "Нийт үнэ: лавлах" : `Нийт: ${formatPrice(total)}`}</p>
+    ${hasUnpriced
+      ? '<p class="auth-note">Үнэ тодорхойгүй бараатай тул захиалгыг одоогоор үргэлжлүүлэх боломжгүй.</p>'
+      : '<p><a class="btn primary" href="checkout.html">Захиалах</a></p>'}`;
   root.querySelectorAll("[data-qty]").forEach((input) => {
     input.addEventListener("change", () => {
       const id = input.getAttribute("data-qty");
@@ -441,6 +471,10 @@ function bindCheckout() {
   const form = document.querySelector("[data-checkout-form]");
   if (!form) return;
   if (!requireAuth("checkout.html")) return;
+  if (cart().some((item) => !(findProduct(item.id)?.price > 0))) {
+    window.location.href = "sags.html";
+    return;
+  }
   if (!cart().length) {
     window.location.href = "sags.html";
     return;

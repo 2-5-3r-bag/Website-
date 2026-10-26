@@ -1,217 +1,94 @@
-const PRODUCTS = [
-  {
-    id: "colonia",
-    name: "Acqua di Parma Colonia",
-    brand: "Acqua di Parma",
-    gender: "eregtei",
-    family: "citrus",
-    size: "100 мл",
-    price: 489000,
-    origin: "Парма, Итали, 1916",
-    image: "images/perfumes/colonia.svg",
-    notesImage: "images/notes/citrus.svg",
-    description:
-      "Италийн cologne-ийн сонгодог. Бергамот, нимбэг, чидун модны цэцэг, сарнай, ветивер. Parma-д 1916 оноос үйлдвэрлэдэг.",
-    notes: {
-      top: ["Бергамот", "Нимбэг", "Жүрж", "Мандарин", "Лаванда"],
-      heart: ["Сарнай", "Розмарин", "Өргөст хэмхний цэцэг"],
-      base: ["Ветивер", "Сандал", "Пачули"]
-    }
-  },
-  {
-    id: "arancia",
-    name: "Blu Mediterraneo Arancia di Capri",
-    brand: "Acqua di Parma",
-    gender: "unisex",
-    family: "citrus",
-    size: "75 мл",
-    price: 429000,
-    origin: "Капри / Парма, Итали",
-    description:
-      "Каприйн жүржний хальс, нимбэг, карамель, хуш мод. Газар дундын тэнгисийн зуны үнэр.",
-    notes: {
-      top: ["Жүрж", "Нимбэг", "Мандарин"],
-      heart: ["Карамель", "Лабурнум"],
-      base: ["Хуш", "Муск"]
-    }
-  },
-  {
-    id: "naxos",
-    name: "Xerjoff Naxos",
-    brand: "Xerjoff",
-    gender: "unisex",
-    family: "oriental",
-    size: "100 мл",
-    price: 1290000,
-    origin: "Турин, Итали",
-    description:
-      "Сицилийн тамхи, зөгийн бал, ваниль, лаванда. Xerjoff-ийн 1861 цувралын хамгийн алдартай найрлагын нэг.",
-    notes: {
-      top: ["Бергамот", "Нимбэг", "Лаванда"],
-      heart: ["Зөгийн бал", "Шарчилсан тамхи", "Кориандр"],
-      base: ["Ваниль", "Тонка", "Сандал", "Кедр"]
-    }
-  },
-  {
-    id: "erba-pura",
-    name: "Xerjoff Erba Pura",
-    brand: "Xerjoff",
-    gender: "unisex",
-    family: "fresh",
-    size: "100 мл",
-    price: 1190000,
-    origin: "Турин, Итали",
-    description:
-      "Жимс, сицилийн жүрж, ваниль, муск. Xerjoff V-цувралын гэрэл гэгээтэй, удаан хадгалагддаг үнэр.",
-    notes: {
-      top: ["Сицилийн жүрж", "Бергамот", "Нимбэг"],
-      heart: ["Чинжүү жимс", "Алим"],
-      base: ["Ваниль", "Муск", "Цагаан мод"]
-    }
-  },
-  {
-    id: "lira",
-    name: "Casamorati Lira",
-    brand: "Xerjoff Casamorati",
-    gender: "emegtei",
-    family: "oriental",
-    size: "100 мл",
-    price: 980000,
-    origin: "Итали (Casamorati 1888)",
-    notesImage: "images/notes/floral.svg",
-    description:
-      "Карамель, шанцай, жүрж, ваниль. 1888 оны Casamorati өвийг Xerjoff сэргээсэн амтат oriental.",
-    notes: {
-      top: ["Жүрж", "Бергамот", "Лаванда"],
-      heart: ["Шанцай", "Сарнай", "Гүрвэлзгэнэ", "Ликер"],
-      base: ["Ваниль", "Карамель", "Муск", "Кедр"]
-    }
-  },
-  {
-    id: "melograno",
-    name: "Santa Maria Novella Melograno",
-    brand: "Santa Maria Novella",
-    gender: "unisex",
-    family: "woody",
-    size: "100 мл",
-    price: 620000,
-    origin: "Флоренц, Итали, 1612 оноос",
-    description:
-      "Анаар (pomegranate), пачули, модлог суурь. Флоренцын Officina Profumo-Farmaceutica di Santa Maria Novella-ийн түүхэн үнэр.",
-    notes: {
-      top: ["Анаар", "Бергамот"],
-      heart: ["Сарнай", "Лийр"],
-      base: ["Пачули", "Муск", "Мод"]
-    }
-  },
-  {
-    id: "acqua-di-sale",
-    name: "Profumum Roma Acqua di Sale",
-    brand: "Profumum Roma",
-    gender: "unisex",
-    family: "fresh",
-    size: "100 мл",
-    price: 890000,
-    origin: "Ром, Итали",
-    description:
-      "Далайн давс, мирт, хуш. Газар дундын эргийн далайн агаартай ойролцоо нише үнэр.",
-    notes: {
-      top: ["Далайн давс", "Мирт"],
-      heart: ["Цэцэг"],
-      base: ["Хуш", "Муск"]
-    }
-  },
-  {
-    id: "acqua-di-gio",
-    name: "Giorgio Armani Acqua di Giò",
-    brand: "Giorgio Armani",
-    gender: "eregtei",
-    family: "fresh",
-    size: "100 мл",
-    price: 359000,
-    origin: "Милан, Итали, 1996",
-    description:
-      "Пантеллерийн тэнгисээс санаа авсан. Бергамот, нероли, далайн нот, хуш, пачули.",
-    notes: {
-      top: ["Нимбэг", "Бергамот", "Нероли"],
-      heart: ["Жасмин", "Розмарин", "Далайн акватик"],
-      base: ["Хуш", "Пачули", "Царсны хөвд"]
-    }
-  },
-  {
-    id: "eros",
-    name: "Versace Eros",
-    brand: "Versace",
-    gender: "eregtei",
-    family: "oriental",
-    size: "100 мл",
-    price: 329000,
-    origin: "Милан, Итали, 2012",
-    description:
-      "Гүзээлзгэнэт навч, ментол, ваниль, ветивер. Versace-ийн эрэгтэйчүүдийн алдартай амтат-шинэ үнэр.",
-    notes: {
-      top: ["Гүзээлзгэнэт навч", "Нимбэг", "Ментол"],
-      heart: ["Тонка", "Амброксан", "Герань"],
-      base: ["Ваниль", "Ветивер", "Хуш", "Пачули"]
-    }
-  },
-  {
-    id: "light-blue",
-    name: "Dolce & Gabbana Light Blue",
-    brand: "Dolce & Gabbana",
-    gender: "emegtei",
-    family: "citrus",
-    size: "100 мл",
-    price: 299000,
-    origin: "Итали, 2001",
-    notesImage: "images/notes/citrus.svg",
-    description:
-      "Сицилийн нимбэг, алим, хуш, балгасны мод. Каприйн зун, цитрус-woody бүтэц.",
-    notes: {
-      top: ["Сицилийн нимбэг", "Алим", "Цэнхэр хонх"],
-      heart: ["Бамбай", "Жасмин", "Бамбайн мод"],
-      base: ["Хуш", "Амбра", "Муск"]
-    }
-  },
-  {
-    id: "iris",
-    name: "Prada Infusion d'Iris",
-    brand: "Prada",
-    gender: "emegtei",
-    family: "floral",
-    size: "100 мл",
-    price: 410000,
-    origin: "Милан, Итали",
-    notesImage: "images/notes/floral.svg",
-    description:
-      "Ирис, нероли, бензоин, кедр. Prada-ийн цэвэр, нунтаг floral-woody.",
-    notes: {
-      top: ["Мандарин", "Нероли", "Галбанум"],
-      heart: ["Ирис", "Жасмин", "Усан үзмийн цэцэг"],
-      base: ["Бензоин", "Кедр", "Ветiver", "Франкинсенс"]
-    }
-  },
-  {
-    id: "bloom",
-    name: "Gucci Bloom",
-    brand: "Gucci",
-    gender: "emegtei",
-    family: "floral",
-    size: "100 мл",
-    price: 389000,
-    origin: "Флоренц / Итали, 2017",
-    notesImage: "images/notes/floral.svg",
-    description:
-      "Түбэроз, жасмин, рангун creeper. Gucci-ийн цэцэрлэгт хүрээлэн мэт цагаан цэцгийн найрлага.",
-    notes: {
-      top: ["Рангун creeper"],
-      heart: ["Түбэроз", "Жасмин"],
-      base: ["Орхидэйн үндэс"]
-    }
-  }
-];
+const DEFAULT_PERFUME_IMAGE = "images/perfumes/placeholder.svg";
+const DEFAULT_NOTES_IMAGE = "images/notes/placeholder.svg";
 
-const BRANDS = [...new Set(PRODUCTS.map((p) => p.brand))];
+const PRODUCTS = [
+  { id: "chance-eau-fraiche", name: "Chance Eau de Parfum Fraîche", brand: "Chanel", gender: "emegtei" },
+  { id: "chance-eau-tendre", name: "Chance Eau de Parfum Tendre", brand: "Chanel", gender: "emegtei" },
+  { id: "chance-eau-splendide", name: "Chance Eau de Parfum Splendide", brand: "Chanel", gender: "emegtei" },
+  { id: "coco-mademoiselle", name: "Coco Mademoiselle Eau de Parfum", brand: "Chanel", gender: "emegtei" },
+  { id: "bleu-de-chanel-parfum", name: "Bleu de Chanel Parfum", brand: "Chanel", gender: "eregtei" },
+  { id: "allure-homme-sport", name: "Allure Homme Sport Eau de Toilette", brand: "Chanel", gender: "eregtei" },
+
+  { id: "bright-crystal", name: "Bright Crystal Eau de Toilette", brand: "Versace", gender: "emegtei" },
+  { id: "bright-crystal-absolu", name: "Bright Crystal Absolu Eau de Parfum", brand: "Versace", gender: "emegtei" },
+  { id: "yellow-diamond", name: "Yellow Diamond Eau de Toilette", brand: "Versace", gender: "emegtei" },
+  { id: "eros", name: "Eros Eau de Toilette", brand: "Versace", gender: "eregtei" },
+  { id: "eros-flame", name: "Eros Flame Eau de Parfum", brand: "Versace", gender: "eregtei" },
+  { id: "eros-energy", name: "Eros Energy Eau de Parfum", brand: "Versace", gender: "eregtei" },
+  { id: "versace-pour-homme", name: "Pour Homme Eau de Toilette", brand: "Versace", gender: "eregtei" },
+  { id: "versace-fraiche", name: "Eau Fraîche Eau de Toilette", brand: "Versace", gender: "eregtei" },
+
+  { id: "delina", name: "Delina", brand: "Parfums de Marly", gender: "emegtei" },
+  { id: "valaya", name: "Valaya", brand: "Parfums de Marly", gender: "emegtei" },
+  { id: "layton", name: "Layton", brand: "Parfums de Marly", gender: "eregtei" },
+
+  { id: "mon-paris", name: "Mon Paris Eau de Parfum", brand: "Yves Saint Laurent", gender: "emegtei" },
+  { id: "mon-paris-intensement", name: "Mon Paris Eau de Parfum Intensément", brand: "Yves Saint Laurent", gender: "emegtei" },
+
+  { id: "power-of-you", name: "Power of You Eau de Parfum", brand: "Giorgio Armani", gender: "emegtei" },
+  { id: "my-way", name: "My Way Eau de Parfum", brand: "Giorgio Armani", gender: "emegtei" },
+  { id: "acqua-di-gio", name: "Acqua di Giò Eau de Toilette", brand: "Giorgio Armani", gender: "eregtei" },
+  { id: "stronger-with-you-absolutely", name: "Stronger With You Absolutely Parfum", brand: "Giorgio Armani", gender: "eregtei" },
+  { id: "stronger-with-you-intensely", name: "Stronger With You Intensely Eau de Parfum", brand: "Giorgio Armani", gender: "eregtei" },
+  { id: "stronger-with-you-powerfully", name: "Stronger With You Powerfully Eau de Parfum", brand: "Giorgio Armani", gender: "eregtei" },
+
+  { id: "le-male-elixir", name: "Le Male Elixir Parfum", brand: "Jean Paul Gaultier", gender: "eregtei" },
+
+  { id: "sauvage", name: "Sauvage Eau de Parfum", brand: "Dior", gender: "eregtei" },
+  { id: "jadore-parfum-deau", name: "J’adore Parfum d’eau", brand: "Dior", gender: "emegtei" },
+
+  { id: "coach-for-men", name: "Coach for Men Eau de Toilette", brand: "Coach", gender: "eregtei" },
+  { id: "coach-green", name: "Coach Green for Men Eau de Toilette", brand: "Coach", gender: "eregtei" },
+  { id: "coach-platinum", name: "Coach for Men Platinum Eau de Parfum", brand: "Coach", gender: "eregtei" },
+  { id: "coach-floral", name: "Coach Floral", brand: "Coach", gender: "emegtei" },
+  { id: "coach-love", name: "Coach Love Eau de Parfum Spray", brand: "Coach", gender: "emegtei" },
+
+  { id: "jimmy-choo-blossom", name: "Jimmy Choo Blossom", brand: "Jimmy Choo", gender: "emegtei" },
+  { id: "jimmy-choo-man", name: "Jimmy Choo Man", brand: "Jimmy Choo", gender: "eregtei" },
+  { id: "jimmy-choo-man-intense", name: "Jimmy Choo Man Intense", brand: "Jimmy Choo", gender: "eregtei" },
+  { id: "jimmy-choo-man-aqua", name: "Jimmy Choo Man Aqua", brand: "Jimmy Choo", gender: "eregtei" },
+
+  { id: "creed-aventus", name: "Aventus", brand: "Creed", gender: "eregtei" },
+  { id: "silver-mountain-water", name: "Silver Mountain Water", brand: "Creed", gender: "eregtei" },
+  { id: "aventus-for-her", name: "Aventus for Her", brand: "Creed", gender: "emegtei" },
+
+  { id: "montblanc-explorer", name: "Explorer", brand: "Montblanc", gender: "eregtei" },
+  { id: "montblanc-legend", name: "Legend", brand: "Montblanc", gender: "eregtei" },
+  { id: "montblanc-legend-spirit", name: "Legend Spirit", brand: "Montblanc", gender: "eregtei" },
+  { id: "montblanc-starwalker", name: "Starwalker", brand: "Montblanc", gender: "eregtei" },
+  { id: "montblanc-explorer-extreme", name: "Explorer Extreme", brand: "Montblanc", gender: "eregtei" },
+
+  { id: "aqva-pour-homme", name: "Aqva Pour Homme Eau de Toilette", brand: "Bvlgari", gender: "eregtei" },
+  { id: "omnia-amethyste", name: "Omnia Amethyste", brand: "Bvlgari", gender: "emegtei" },
+  { id: "omnia-crystalline", name: "Omnia Crystalline", brand: "Bvlgari", gender: "emegtei" },
+  { id: "omnia-coral", name: "Omnia Coral Eau de Toilette", brand: "Bvlgari", gender: "emegtei" },
+
+  { id: "lacoste-pour-femme", name: "Pour Femme", brand: "Lacoste", gender: "emegtei" },
+  { id: "lacoste-blanc-parfum", name: "Lacoste Blanc Parfum", brand: "Lacoste", gender: "eregtei" },
+  { id: "lacoste-blanc-edt", name: "Lacoste Blanc Eau de Toilette", brand: "Lacoste", gender: "eregtei" },
+
+  { id: "gucci-guilty", name: "Gucci Guilty", brand: "Gucci", gender: "unisex" },
+
+  { id: "replica-jazz-club", name: "Jazz Club", brand: "Maison Margiela", gender: "unisex" },
+  { id: "replica-coffee-break", name: "Coffee Break", brand: "Maison Margiela", gender: "unisex" },
+  { id: "replica-lazy-sunday-morning", name: "Lazy Sunday Morning", brand: "Maison Margiela", gender: "unisex" },
+  { id: "replica-by-the-fireplace", name: "By the Fireplace", brand: "Maison Margiela", gender: "unisex" },
+  { id: "replica-when-the-rain-stops", name: "When the Rain Stops", brand: "Maison Margiela", gender: "unisex" },
+  { id: "replica-beach-walk", name: "Beach Walk", brand: "Maison Margiela", gender: "unisex" },
+  { id: "replica-autumn-vibes", name: "Autumn Vibes", brand: "Maison Margiela", gender: "unisex" }
+].map((product) => ({
+  ...product,
+  family: "unclassified",
+  size: "",
+  price: null,
+  origin: "",
+  image: DEFAULT_PERFUME_IMAGE,
+  notesImage: DEFAULT_NOTES_IMAGE,
+  description: "",
+  notes: { top: [], heart: [], base: [] }
+}));
+
+const BRANDS = [...new Set(PRODUCTS.map((product) => product.brand))];
 const FAMILIES = [
   { id: "citrus", name: "Цитрус" },
   { id: "floral", name: "Цэцэг" },
@@ -220,5 +97,3 @@ const FAMILIES = [
   { id: "fresh", name: "Шинэхэн" }
 ];
 
-const DEFAULT_PERFUME_IMAGE = "images/perfumes/default.svg";
-const DEFAULT_NOTES_IMAGE = "images/notes/default.svg";
