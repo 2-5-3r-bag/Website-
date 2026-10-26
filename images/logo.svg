@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="ZENITH BEAUTY Since 2016">
+  <rect width="640" height="360" fill="#0F0D0D"/>
+  <text x="320" y="150" text-anchor="middle" fill="#EDAB18" font-family="Georgia, Times New Roman, serif" font-size="72" letter-spacing="10">ZENITH</text>
+  <text x="320" y="210" text-anchor="middle" fill="#EDAB18" font-family="Georgia, Times New Roman, serif" font-size="36" letter-spacing="16">BEAUTY</text>
+  <line x1="170" y1="248" x2="250" y2="248" stroke="#EDAB18" stroke-width="2"/>
+  <line x1="390" y1="248" x2="470" y2="248" stroke="#EDAB18" stroke-width="2"/>
+  <text x="320" y="256" text-anchor="middle" fill="#EDAB18" font-family="Georgia, Times New Roman, serif" font-size="22">Since 2016</text>
+</svg>

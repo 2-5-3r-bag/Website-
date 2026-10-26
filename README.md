@@ -1,3 +1,20 @@
-﻿# Website Main Branch
+﻿# ZENith Beauty
 
-how is that work
+Компьютерийн дэлгэцэнд зориулсан, vanilla HTML/CSS/JavaScript ашигласан сүрчигний дэлгүүр.
+
+## Ажиллуулах
+
+Төслийн хавтсанд терминал нээгээд `python -m http.server 8000` командыг ажиллуулна. Дараа нь `http://localhost:8000` хаягийг нээнэ. Нэмэлт сан болон build алхам шаардлагагүй.
+
+## Хуудаснууд
+
+- `index.html` — Нүүр, текстэн ZENITH BEAUTY лого, онцлох сүрчиг
+- `brands.html`, `emegtei.html`, `eregtei.html`, `unertnii-torol.html` — Каталог
+- `product.html?id=eros` — Сүрчигний дэлгэрэнгүй
+- `sags.html`, `checkout.html` — Сагс болон захиалга
+- `login.html`, `profile.html` — Gmail хэлбэрийн demo нэвтрэлт, профайл
+- `salbar.html`, `tuhai.html` — Салбар болон дэлгүүрийн тухай
+
+## Санамж
+
+Бүртгэл, сагс, хадгалсан сүрчиг, захиалгууд тухайн хөтчийн `localStorage`-д хадгалагдана. Нэвтрэлт нь Gmail API ашигладаггүй, зөвхөн урд талын demo урсгал юм. Word жагсаалтад үнэ, савлагааны хэмжээ болон үнэрийн ноот байгаагүй тул эдгээр бүтээгдэхүүнд үнэ лавлах тэмдэглэгээ харагдана.
