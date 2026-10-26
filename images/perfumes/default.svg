@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 320" role="img" aria-label="!¯@G8389= ¯=4AM= 7C@03">
+  <rect width="240" height="320" fill="#0F0D0D"/>
+  <rect x="98" y="28" width="44" height="28" rx="4" fill="none" stroke="#EDAB18" stroke-width="3"/>
+  <rect x="88" y="52" width="64" height="18" rx="3" fill="#EDAB18"/>
+  <path d="M70 78 h100 l12 28 v156 a18 18 0 0 1 -18 18 H76 a18 18 0 0 1 -18 -18 V106 z" fill="none" stroke="#EDAB18" stroke-width="3"/>
+  <path d="M92 132 h56" stroke="#EDAB18" stroke-width="2"/>
+  <text x="120" y="200" text-anchor="middle" fill="#EDAB18" font-family="Georgia, serif" font-size="16">ZENITH</text>
+</svg>
