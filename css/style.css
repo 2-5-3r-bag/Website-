@@ -111,30 +111,6 @@ h3,
   letter-spacing: 0.17em !important;
 }
 
-<<<<<<< HEAD
-.nav-auth {
-  margin-left: auto;
-}
-
-.nav-auth a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 42px;
-  padding: 0 23px;
-  border: 1px solid var(--gold);
-  border-radius: 999px;
-  background: var(--paper-light);
-}
-
-.nav-auth a:hover {
-  background: var(--ink);
-  border-color: var(--ink);
-  color: var(--white);
-}
-
-=======
->>>>>>> arigbukh
 .sidebar {
   position: sticky;
   top: 82px;
@@ -310,10 +286,7 @@ h3,
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-<<<<<<< HEAD
-=======
 
->>>>>>> arigbukh
 }
 
 .btn:hover,
@@ -347,10 +320,7 @@ h3,
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-<<<<<<< HEAD
-=======
 
->>>>>>> arigbukh
 }
 
 .category-strip a:last-child {
@@ -389,18 +359,13 @@ h3,
   flex-direction: column;
   background: var(--paper-light);
   border: 1px solid var(--line);
-<<<<<<< HEAD
-}
-
-.card:hover {
-=======
 
 }
 
 .card:hover {
 
->>>>>>> arigbukh
   border-color: var(--gold-light);
+  box-shadow: 0 12px 30px rgba(60, 41, 22, 0.09);
 }
 
 .card > a:first-child {
@@ -413,14 +378,11 @@ h3,
   height: 250px;
   object-fit: contain;
   padding: 18px;
-<<<<<<< HEAD
-=======
 
 }
 
 .card:hover img {
 
->>>>>>> arigbukh
 }
 
 .card-body {
@@ -550,57 +512,6 @@ h3,
   grid-template-columns: minmax(170px, 220px) minmax(320px, 1fr) minmax(170px, 220px);
   gap: 25px;
   align-items: start;
-}
-
-.brand-section {
-  margin: 0 0 44px;
-  scroll-margin-top: 100px;
-}
-
-.detail-list {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
-}
-
-.detail-card {
-  display: grid;
-  grid-template-columns: 150px minmax(0, 1fr);
-  gap: 18px;
-  align-items: center;
-  padding: 18px;
-  background: var(--paper-light);
-  border: 1px solid var(--line);
-  scroll-margin-top: 100px;
-}
-
-.detail-card > img {
-  width: 150px;
-  height: 190px;
-  object-fit: contain;
-  background: #efe6da;
-}
-
-.detail-card h2 {
-  margin: 6px 0;
-  font-size: 21px;
-}
-
-.empty-state {
-  max-width: 740px;
-  margin: 36px auto;
-  padding: 54px;
-  background: var(--paper-light);
-  border: 1px solid var(--line);
-  text-align: center;
-}
-
-.empty-state h2 {
-  font-size: 30px;
-}
-
-.empty-state > p:not(.eyebrow) {
-  color: var(--muted);
 }
 
 .notes-panel {
@@ -787,8 +698,6 @@ textarea::placeholder {
   }
 }
 
-<<<<<<< HEAD
-=======
 .size-options {
   width: 100%;
   margin: 10px 0;
@@ -1008,4 +917,3 @@ textarea::placeholder {
     grid-template-columns: 1fr;
   }
 }
->>>>>>> arigbukh
