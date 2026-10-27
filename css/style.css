@@ -91,7 +91,6 @@ h3,
 }
 
 .nav-main a,
-.nav-auth a,
 .side-nav a {
   color: var(--ink);
   font-size: 12px;
@@ -100,7 +99,6 @@ h3,
 }
 
 .nav-main a:hover,
-.nav-auth a:hover,
 .side-nav a:hover,
 .nav-main a.active,
 .side-nav a.active {
@@ -113,6 +111,7 @@ h3,
   letter-spacing: 0.17em !important;
 }
 
+<<<<<<< HEAD
 .nav-auth {
   margin-left: auto;
 }
@@ -134,6 +133,8 @@ h3,
   color: var(--white);
 }
 
+=======
+>>>>>>> arigbukh
 .sidebar {
   position: sticky;
   top: 82px;
@@ -166,26 +167,34 @@ h3,
   margin: 16px 0 0;
 }
 
-.cart-link {
-  margin-top: 2px;
-  padding-top: 20px;
+.side-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-top: auto;
+  padding-top: 16px;
   border-top: 1px solid var(--line);
-  font-family: Georgia, "Times New Roman", Times, serif;
-  font-size: 22px;
 }
 
-.cart-count {
-  display: inline-block;
-  min-width: 23px;
-  margin-left: 7px;
-  padding: 0 6px;
-  border: 1px solid var(--gold-light);
-  border-radius: 999px;
+.side-contact h2 {
+  margin: 0 0 3px;
   color: var(--gold);
-  font-family: "Segoe UI", Tahoma, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.side-contact a {
+  color: var(--ink);
   font-size: 12px;
-  text-align: center;
-  vertical-align: middle;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.side-contact a:hover {
+  color: var(--gold);
 }
 
 .content {
@@ -301,6 +310,10 @@ h3,
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+<<<<<<< HEAD
+=======
+
+>>>>>>> arigbukh
 }
 
 .btn:hover,
@@ -334,6 +347,10 @@ h3,
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+<<<<<<< HEAD
+=======
+
+>>>>>>> arigbukh
 }
 
 .category-strip a:last-child {
@@ -372,9 +389,17 @@ h3,
   flex-direction: column;
   background: var(--paper-light);
   border: 1px solid var(--line);
+<<<<<<< HEAD
 }
 
 .card:hover {
+=======
+
+}
+
+.card:hover {
+
+>>>>>>> arigbukh
   border-color: var(--gold-light);
 }
 
@@ -388,6 +413,14 @@ h3,
   height: 250px;
   object-fit: contain;
   padding: 18px;
+<<<<<<< HEAD
+=======
+
+}
+
+.card:hover img {
+
+>>>>>>> arigbukh
 }
 
 .card-body {
@@ -396,6 +429,11 @@ h3,
   flex-direction: column;
   gap: 8px;
   padding: 17px 18px 20px;
+}
+
+.card-body > .btn {
+  width: 100%;
+  margin-top: auto;
 }
 
 .card-body h3 {
@@ -749,3 +787,225 @@ textarea::placeholder {
   }
 }
 
+<<<<<<< HEAD
+=======
+.size-options {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.size-options select {
+  width: 100%;
+  min-height: 40px;
+  font-size: 12px;
+}
+
+.catalog-note {
+  margin: 24px 0;
+  padding: 16px 20px;
+  border-left: 3px solid var(--gold);
+  background: var(--paper-light);
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.product-details-list {
+  display: grid;
+  gap: 16px;
+}
+
+.product-detail-card {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 20px;
+  padding: 20px;
+  background: var(--paper-light);
+  border: 1px solid var(--line);
+  scroll-margin-top: 100px;
+}
+
+.product-detail-card img {
+  width: 150px;
+  height: 160px;
+  object-fit: contain;
+  background: #efe6da;
+}
+
+.product-detail-card h2 {
+  margin: 0 0 4px;
+  font-size: 22px;
+}
+
+.product-detail-card .size-options {
+  max-width: 440px;
+}
+
+.facebook-content {
+  max-width: 1380px;
+  width: 100%;
+}
+
+.facebook-image-link {
+  display: block;
+  margin: 26px 0 18px;
+}
+
+.facebook-preview {
+  width: 100%;
+  max-height: 72vh;
+  object-fit: contain;
+  object-position: left center;
+  background: var(--paper-light);
+  border: 1px solid var(--line);
+}
+
+.feedback-content {
+  display: flex;
+  justify-content: center;
+  padding-top: 42px;
+  padding-bottom: 52px;
+  background: var(--paper);
+}
+
+.feedback-panel {
+  width: min(100%, 640px);
+  padding: 32px 42px 40px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--paper-light);
+  box-shadow: 0 18px 50px rgba(60, 41, 22, 0.08);
+}
+
+.feedback-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.feedback-heading h1 {
+  margin: 6px 0 12px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 24px;
+  font-weight: 650;
+  letter-spacing: 0;
+}
+
+.feedback-heading .lead {
+  margin: 0;
+  color: var(--muted);
+}
+
+.feedback-close {
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--paper-deep);
+  color: var(--ink);
+  font-size: 27px;
+  line-height: 1;
+}
+
+.feedback-tabs {
+  margin: 32px 0 29px;
+}
+
+.feedback-tabs input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.feedback-tab-labels {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 4px;
+  padding: 5px;
+  border-radius: 14px;
+  background: #f1ebe2;
+}
+
+.feedback-tab-labels label {
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 11px;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 15px;
+}
+
+#kind-thanks:checked ~ .feedback-tab-labels label[for="kind-thanks"],
+#kind-complaint:checked ~ .feedback-tab-labels label[for="kind-complaint"],
+#kind-suggestion:checked ~ .feedback-tab-labels label[for="kind-suggestion"] {
+  background: var(--paper-light);
+  color: var(--ink);
+  box-shadow: 0 2px 8px rgba(60, 41, 22, 0.1);
+}
+
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.feedback-form label {
+  gap: 10px;
+  font-size: 16px;
+}
+
+.feedback-form select,
+.feedback-form textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--white);
+  font-size: 16px;
+}
+
+.feedback-form select {
+  min-height: 60px;
+}
+
+.feedback-form textarea {
+  min-height: 168px;
+  resize: vertical;
+}
+
+.feedback-submit {
+  min-height: 60px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--ink);
+  color: #fff;
+  font: inherit;
+  font-size: 18px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.feedback-note {
+  margin: -14px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+  text-align: center;
+}
+
+.price-source-note {
+  margin-top: 24px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+@media (max-width: 700px) {
+  .product-detail-card {
+    grid-template-columns: 1fr;
+  }
+}
+>>>>>>> arigbukh
