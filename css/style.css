@@ -749,6 +749,63 @@ textarea::placeholder {
   max-width: 440px;
 }
 
+.note-pyramid {
+  margin-top: 22px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.note-pyramid h3 {
+  margin: 0 0 12px;
+  color: var(--gold);
+  font-size: 14px;
+}
+
+.note-pyramid dl {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+}
+
+.note-pyramid dt {
+  margin-bottom: 5px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.note-pyramid dd {
+  margin: 0;
+  font-size: 12px;
+}
+
+.note-group {
+  margin-top: 38px;
+  scroll-margin-top: 105px;
+}
+
+.note-group .section-title span,
+.note-jump span {
+  color: var(--muted);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 11px;
+}
+
+.brand-section {
+  margin-top: 34px;
+  scroll-margin-top: 105px;
+}
+
+.brand-jump,
+.note-jump {
+  position: sticky;
+  top: 82px;
+  z-index: 10;
+  padding: 10px 0;
+  background: var(--paper);
+}
+
 .facebook-content {
   max-width: 1380px;
   width: 100%;
