@@ -29,6 +29,7 @@
         <section class="side-contact" aria-label="Холбоо барих">
           <h2>Холбоо барих</h2>
           <a href="tel:+97699599940">99599940</a>
+          <a href="mailto:anxilan2005@gmail.com">Gmail</a>
           <a href="https://www.facebook.com/profile.php?id=100028472696849" target="_blank" rel="noopener noreferrer">Facebook</a>
           <a href="https://www.instagram.com/zenithbeauty7" target="_blank" rel="noopener noreferrer">Instagram</a>
         </section>
@@ -52,9 +53,9 @@
               <label for="kind-suggestion" role="tab">Санал хүсэлт</label>
             </div>
           </div>
-          <form class="feedback-form">
+          <form class="feedback-form" action="mailto:anxilan2005@gmail.com" method="post" enctype="text/plain">
             <label for="feedback-topic">Сэдэв сонгох
-              <select id="feedback-topic" name="topic">
+              <select id="feedback-topic" name="topic" required>
                 <option value="" selected>Сонго...</option>
                 <option>Бүтээгдэхүүний мэдээлэл</option>
                 <option>Салбарын үйлчилгээ</option>
@@ -63,10 +64,10 @@
               </select>
             </label>
             <label for="feedback-message">Сэтгэгдэл
-              <textarea id="feedback-message" name="message" rows="6"></textarea>
+              <textarea id="feedback-message" name="message" rows="6" required></textarea>
             </label>
-            <button class="feedback-submit" type="button">Илгээх</button>
-            <p class="feedback-note">Статик хувилбарт илгээсэн санал хадгалагдахгүй.</p>
+            <button class="feedback-submit" type="submit">Илгээх</button>
+            <p class="feedback-note">Илгээхэд таны имэйл апп нээгдэж, санал хүсэлтийг anxilan2005@gmail.com хаягт илгээнэ.</p>
           </form>
         </section>
       </main>
