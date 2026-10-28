@@ -943,6 +943,14 @@ textarea::placeholder {
   border: 1px solid var(--line);
 }
 
+.facebook-details {
+  max-width: 900px;
+  margin: 0 0 22px;
+  color: var(--muted);
+  font-size: clamp(17px, 1.5vw, 21px);
+  line-height: 1.7;
+}
+
 .feedback-content {
   display: flex;
   justify-content: center;
