@@ -633,6 +633,42 @@ textarea::placeholder {
   border: 1px solid var(--line);
 }
 
+.branches {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: clamp(32px, 5vw, 76px);
+  padding: clamp(30px, 4vw, 64px);
+}
+
+.branch-info h2 {
+  margin: 0 0 30px;
+  font-size: clamp(42px, 4vw, 64px);
+  line-height: 1.1;
+}
+
+.branch-info p {
+  margin: 0 0 22px;
+  font-size: clamp(21px, 2vw, 30px);
+  line-height: 1.55;
+}
+
+.branch-info .meta {
+  margin-top: 34px;
+  color: var(--muted);
+  font-size: clamp(18px, 1.5vw, 22px);
+}
+
+.branch-info p:last-child {
+  margin-bottom: 0;
+}
+
+.branch-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .about-content {
   padding-top: 54px;
 }
@@ -1053,6 +1089,10 @@ textarea::placeholder {
 
 @media (max-width: 700px) {
   .product-detail-card {
+    grid-template-columns: 1fr;
+  }
+
+  .branches {
     grid-template-columns: 1fr;
   }
 }
