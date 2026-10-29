@@ -740,6 +740,19 @@ textarea::placeholder {
   letter-spacing: 0.08em;
 }
 
+.scent-test {
+  margin-top: 48px;
+  padding: 28px;
+  background: var(--paper-light);
+  border: 1px solid var(--line);
+}
+
+.scent-test p {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 22px;
+}
+
 @media (max-width: 1100px) {
   .about-feature {
     grid-template-columns: minmax(0, 1fr) minmax(280px, 1fr);
