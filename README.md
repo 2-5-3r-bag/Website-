@@ -12,6 +12,7 @@ index.html файлыг хөтөч дээр нээх, эсвэл төслийн 
 - brands.html, emegtei.html, eregtei.html — брэндээр бүлэглэсэн каталог, хэмжээний үнэ
 - product.html — хэмжээ, үнэ, эхний, дунд, суурь үнэрийн ноот
 - unertnii-torol.html — давтагддаг ноотоор бүлэглэсэн каталог
+- uneriig-ol.html — өөрийн үнэрийг олох хуудас
 - salbar.html, tuhai.html — салбар болон дэлгүүрийн мэдээлэл
 - facebook.html — Facebook хуудсанд зураг, холбоосоор нэвтрэх
 - feedback.html — талархал, гомдол, саналын статик маягт
