@@ -12,7 +12,12 @@ ZENith Beauty бол зөвхөн HTML болон CSS ашигласан ста�
 - brands.html, emegtei.html, eregtei.html — брэндээр бүлэглэсэн каталог, хэмжээний үнэ
 - product.html — хэмжээ, үнэ, эхний, дунд, суурь үнэрийн ноот
 - unertnii-torol.html — давтагддаг ноотоор бүлэглэсэн каталог
+<<<<<<< HEAD
 - Arigbukh/salbar.html, Arigbukh/tuhai.html — салбар болон дэлгүүрийн мэдээлэл
+=======
+- uneriig-ol.html — өөрийн үнэрийг олох хуудас
+- salbar.html, tuhai.html — салбар болон дэлгүүрийн мэдээлэл
+>>>>>>> 7f05383709079d7794da8fe5be9eb8a6ed9f940c
 - facebook.html — Facebook хуудсанд зураг, холбоосоор нэвтрэх
 - Arigbukh/feedback.html — талархал, гомдол, саналын статик маягт
 - Arigbukh/holboo-barih.html — холбоо барих мэдээлэл
