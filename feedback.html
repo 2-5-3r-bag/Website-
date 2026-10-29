@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Санал хүсэлт — ZENith Beauty</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="page-shell">
+    <div class="frame">
+      <header class="topbar">
+        <nav class="nav-main">
+          <a class="nav-home" href="index.html">Home</a>
+          <a href="salbar.html">Салбар</a>
+          <a href="tuhai.html">Тухай</a>
+          <a href="holboo-barih.html">Холбоо барих</a>
+          <a class="active" href="feedback.html">Санал хүсэлт</a>
+        </nav>
+      </header>
+      <aside class="sidebar">
+        <nav class="side-nav">
+          <a href="../brands.html">Брэнд</a>
+          <a href="../emegtei.html">Эмэгтэй</a>
+          <a href="../eregtei.html">Эрэгтэй</a>
+          <a href="../unertnii-torol.html">Үнэртний төрөл</a>
+        </nav>
+        <p class="side-copy">Таны санал бидэнд үнэ цэнтэй.</p>
+      </aside>
+      <main class="content feedback-content">
+        <section class="feedback-panel" aria-labelledby="feedback-title">
+          <header class="feedback-heading">
+            <div>
+              <h1 id="feedback-title">Санал хүсэлт</h1>
+              <p class="lead">Та өөрийн илгээх гэж байгаа санал хүсэлтийн төрлийг сонгоод санал хүсэлтээ илгээх боломжтой.</p>
+            </div>
+            <a class="feedback-close" href="../facebook.html" aria-label="Хаах">×</a>
+          </header>
+          <div class="feedback-tabs">
+            <input type="radio" name="feedback-kind" id="kind-thanks" checked>
+            <input type="radio" name="feedback-kind" id="kind-complaint">
+            <input type="radio" name="feedback-kind" id="kind-suggestion">
+            <div class="feedback-tab-labels" role="tablist" aria-label="Саналын төрөл">
+              <label for="kind-thanks" role="tab">Талархал</label>
+              <label for="kind-complaint" role="tab">Гомдол</label>
+              <label for="kind-suggestion" role="tab">Санал хүсэлт</label>
+            </div>
+          </div>
+          <form class="feedback-form" action="mailto:anxilan2005@gmail.com" method="post" enctype="text/plain">
+            <label for="feedback-topic">Сэдэв сонгох
+              <select id="feedback-topic" name="topic" required>
+                <option value="" selected>Сонго...</option>
+                <option>Бүтээгдэхүүний мэдээлэл</option>
+                <option>Салбарын үйлчилгээ</option>
+                <option>Вэбсайт</option>
+                <option>Бусад</option>
+              </select>
+            </label>
+            <label for="feedback-message">Сэтгэгдэл
+              <textarea id="feedback-message" name="message" rows="6" required></textarea>
+            </label>
+            <button class="feedback-submit" type="submit">Илгээх</button>
+            <p class="feedback-note">Илгээхэд таны имэйл апп нээгдэж, санал хүсэлтийг anxilan2005@gmail.com хаягт илгээнэ.</p>
+          </form>
+        </section>
+      </main>
+      <footer class="footer">ZENith Beauty · Сонгомол үнэртнүүд · Since 2016</footer>
+    </div>
+  </div>
+</body>
+</html>
