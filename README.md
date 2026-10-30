@@ -4,18 +4,18 @@ ZENith Beauty бол зөвхөн HTML болон CSS ашигласан ста�
 
 ## Ажиллуулах
 
-index.html файлыг хөтөч дээр нээх, эсвэл төслийн хавтсанд python -m http.server 8000 ажиллуулаад http://localhost:8000 хаягаар орно.
+`Arigbukh/index.html` файлыг хөтөч дээр нээх, эсвэл төслийн хавтсанд `python -m http.server 8000` ажиллуулаад http://localhost:8000/Arigbukh/ хаягаар орно.
 
 ## Хуудаснууд
 
-- index.html — нүүр хуудас
+- Arigbukh/index.html — нүүр хуудас
 - brands.html, emegtei.html, eregtei.html — брэндээр бүлэглэсэн каталог, хэмжээний үнэ
 - product.html — хэмжээ, үнэ, эхний, дунд, суурь үнэрийн ноот
 - unertnii-torol.html — давтагддаг ноотоор бүлэглэсэн каталог
-- uneriig-ol.html — өөрийн үнэрийг олох хуудас
-- salbar.html, tuhai.html — салбар болон дэлгүүрийн мэдээлэл
+- Arigbukh/salbar.html, Arigbukh/tuhai.html — салбар болон дэлгүүрийн мэдээлэл
 - facebook.html — Facebook хуудсанд зураг, холбоосоор нэвтрэх
-- feedback.html — талархал, гомдол, саналын статик маягт
+- Arigbukh/feedback.html — талархал, гомдол, саналын статик маягт
+- Arigbukh/holboo-barih.html — холбоо барих мэдээлэл
 - checkout.html, profile.html — статик тайлбарын хуудсууд
 
 ## Үнийн мэдээлэл
